@@ -28,3 +28,8 @@ export type TotalPopulationResultData = {
   year: number;
   value: number;
 };
+
+export type PrefecturesResult = {
+  prefCode: number;
+  prefName: string;
+};
