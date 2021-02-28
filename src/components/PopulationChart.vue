@@ -21,6 +21,10 @@ export default defineComponent({
       return {
         chart: {
           renderTo: "chart",
+          scrollablePlotArea: {
+            minWidth: 680,
+            scrollPositionX: 0,
+          },
         },
         title: {
           text: "総人口",
