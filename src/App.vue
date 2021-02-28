@@ -7,6 +7,7 @@
         <div v-for="prefecture in prefectures" :key="prefecture.prefCode">
           <input
             :id="prefecture.prefName"
+            v-model="checkedPrefectures"
             type="checkbox"
             name="prefCode"
             :value="prefecture.prefCode"
@@ -15,19 +16,37 @@
         </div>
       </div>
     </div>
+    <TotalPopulationChart :series="series" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import TotalPopulationChart from "@/components/TotalPopulationChart.vue";
 import { usePrefectures } from "@/composables/use-prefectures";
+import { useTotalPopulation } from "@/composables/useTotalPopulation";
 
 export default defineComponent({
+  components: {
+    TotalPopulationChart,
+  },
+
   setup() {
     const { prefectures } = usePrefectures();
 
+    const {
+      checkedPrefectures,
+      totalPopulations,
+      isCreatingGraph,
+      series,
+    } = useTotalPopulation(prefectures);
+
     return {
       prefectures,
+      checkedPrefectures,
+      totalPopulations,
+      isCreatingGraph,
+      series,
     };
   },
 });
