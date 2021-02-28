@@ -12,6 +12,7 @@
     "lint:fix": "vue-cli-service lint"
   },
   "dependencies": {
+    "node-fetch": "^2.6.1",
     "vue": "^3.0.4"
   },
   "devDependencies": {
