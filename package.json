@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "run-p build:**",
+    "build:client": "vue-cli-service build",
+    "build:serverless": "netlify-lambda build serverless",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint --no-fix --max-warnings 0",
     "lint:fix": "vue-cli-service lint"
