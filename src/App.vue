@@ -23,7 +23,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import TotalPopulationChart from "@/components/TotalPopulationChart.vue";
-import { usePrefectures } from "@/composables/use-prefectures";
+import { usePrefectures } from "@/composables/usePrefectures";
 import { useTotalPopulation } from "@/composables/useTotalPopulation";
 
 export default defineComponent({
