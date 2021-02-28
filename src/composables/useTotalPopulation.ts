@@ -16,8 +16,14 @@ export function useTotalPopulation(
   const totalPopulations = ref([]) as Ref;
   const isCreatingGraph = ref(false);
   const series = ref([]) as Ref;
+  const cachedPopulations = new Map<number, unknown>();
 
   const getPopulation = async (prefCode: number, prefectureName: string) => {
+    if (cachedPopulations.has(prefCode)) {
+      totalPopulations.value.push(cachedPopulations.get(prefCode));
+      return;
+    }
+
     const res = await fetch(
       settings.apiRoot + `population?prefCode=${prefCode}`
     );
@@ -30,6 +36,7 @@ export function useTotalPopulation(
 
       const totalPopulation = { prefectureName, ...json.result };
       totalPopulations.value.push(totalPopulation);
+      cachedPopulations.set(prefCode, totalPopulation);
     }
   };
 
