@@ -43,7 +43,7 @@ npm run lint:fix
 
 `serverless`
 - Netlify Functionsで実行するコードを置く場所です。
-  - クライアントサイドのコードとは直接関係しないので、別のディレクトリに分けておいた方がわかりやすいだろう思い、別の`src`には配置しませんでした。
+  - クライアントサイドのコードとは直接関係しないので、別のディレクトリに分けておいた方がわかりやすいだろう思い、`src`には配置しませんでした。
 
 `src/composables`
 - Vue.jsのComposition Functionsの置き場です。
