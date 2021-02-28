@@ -1,0 +1,15 @@
+:root {
+  --color-text: #333;
+  --color-background: #fff;
+  --space-unit: 4px;
+  --space-1: calc(1 * var(--space-unit));
+  --space-2: calc(2 * var(--space-unit));
+  --space-3: calc(3 * var(--space-unit));
+  --space-4: calc(5 * var(--space-unit));
+  --space-5: calc(8 * var(--space-unit));
+  --space-6: calc(13 * var(--space-unit));
+  --space-7: calc(21 * var(--space-unit));
+  --leading-normal: 1.8;
+  --leading-tight: 1.5;
+  --measure: 40;
+}

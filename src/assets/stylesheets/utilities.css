@@ -1,0 +1,13 @@
+.center {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: calc(var(--measure) * 1em);
+}
+
+.stack-3 > * + * {
+  margin-top: var(--space-3);
+}
+
+.stack-5 > * + * {
+  margin-top: var(--space-5);
+}

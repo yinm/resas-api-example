@@ -1,0 +1,23 @@
+html {
+  font-family: sans-serif;
+  font-size: calc(1rem + 0.1vw);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+body {
+  margin: 0;
+  padding: var(--space-4);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: var(--leading-tight);
+  font-feature-settings: "palt" 1;
+  font-kerning: auto;
+}
