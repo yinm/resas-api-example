@@ -16,9 +16,41 @@ export const resasApiClient = async (
   } else {
     const json = await res.json();
 
+    // RESASの4xxエラーは、レスポンスヘッダーのステータスコードでは判断できない (レスポンスヘッダーのステータスコードは`200 OK`で返ってくるため)
+    // see: https://opendata.resas-portal.go.jp/docs/api/v1/detail/index.html
+    const clientErrorResult = handleClientErrors(json);
+    if (clientErrorResult !== null) {
+      return clientErrorResult;
+    }
+
     return {
       statusCode: 200,
       body: JSON.stringify(json),
     };
   }
 };
+
+function handleClientErrors(responseBody): APIGatewayProxyResult | null {
+  if (responseBody === "400") {
+    return {
+      statusCode: 400,
+      body: "Bad Request",
+    };
+  }
+  if (responseBody === "404") {
+    return {
+      statusCode: 404,
+      body: "Not Found",
+    };
+  }
+  if (responseBody.statusCode) {
+    const { statusCode, message } = responseBody;
+
+    return {
+      statusCode: Number(statusCode),
+      body: message,
+    };
+  }
+
+  return null;
+}
