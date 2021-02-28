@@ -43,17 +43,13 @@ export default defineComponent({
   setup() {
     const { prefectures } = usePrefectures();
 
-    const {
-      checkedPrefectures,
-      totalPopulations,
-      isCreatingGraph,
-      series,
-    } = useTotalPopulation(prefectures);
+    const { checkedPrefectures, isCreatingGraph, series } = useTotalPopulation(
+      prefectures
+    );
 
     return {
       prefectures,
       checkedPrefectures,
-      totalPopulations,
       isCreatingGraph,
       series,
     };
