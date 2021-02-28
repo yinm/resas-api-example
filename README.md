@@ -35,3 +35,21 @@ npm run lint
 # autofix
 npm run lint:fix 
 ```
+
+## ディレクトリ構成
+基本は、[Vue CLIで環境を作っています (リンク先のコミットメッセージに、選択した機能も記載)](https://github.com/yinm/resas-api-example/commit/6a630dddedaf24b3c634d1892efc6525eec737e6)。
+
+その他、開発中に追加したディレクトリの主要なものについて、こちらで説明します。
+
+`serverless`
+- Netlify Functionsで実行するコードを置く場所です。
+  - クライアントサイドのコードとは直接関係しないので、別のディレクトリに分けておいた方がわかりやすいだろう思い、別の`src`には配置しませんでした。
+
+`src/composables`
+- Vue.jsのComposition Functionsの置き場です。
+
+`src/types`
+- クライアントのアプリケーション内で共有したい型定義の置き場です。
+
+`src/utils`
+- クライアントのアプリケーション内で共有したい関数や設定などの置き場です。
