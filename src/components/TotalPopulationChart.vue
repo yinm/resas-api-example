@@ -26,6 +26,9 @@ export default defineComponent({
             scrollPositionX: 0,
           },
         },
+        credits: {
+          enabled: false,
+        },
         title: {
           text: "総人口",
         },

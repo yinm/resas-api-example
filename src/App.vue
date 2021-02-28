@@ -16,7 +16,16 @@
         </div>
       </div>
     </div>
-    <TotalPopulationChart :series="series" />
+
+    <p v-show="isCreatingGraph">
+      グラフの表示処理をしています。少々お待ちください。
+    </p>
+    <template v-if="!isCreatingGraph">
+      <TotalPopulationChart v-if="series.length >= 1" :series="series" />
+      <p v-else>
+        チェックボックスで選択した都道府県の総人口グラフが表示されます。
+      </p>
+    </template>
   </div>
 </template>
 
@@ -34,17 +43,13 @@ export default defineComponent({
   setup() {
     const { prefectures } = usePrefectures();
 
-    const {
-      checkedPrefectures,
-      totalPopulations,
-      isCreatingGraph,
-      series,
-    } = useTotalPopulation(prefectures);
+    const { checkedPrefectures, isCreatingGraph, series } = useTotalPopulation(
+      prefectures
+    );
 
     return {
       prefectures,
       checkedPrefectures,
-      totalPopulations,
       isCreatingGraph,
       series,
     };
