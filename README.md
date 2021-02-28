@@ -1,29 +1,37 @@
 # resas-api-example
 
-## Project setup
-```
+## 開発環境の構築
+
+### Project setup
+
+```sh
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+### 開発環境の起動
+RESASのAPIキー(秘匿情報)をクライアントに持たせないために、Netlify Functions経由でRESASにリクエストするようにしています。開発環境でもNetlify Functionsを使えるように、[Netlify Dev](https://www.netlify.com/products/dev/)を事前にインストールする必要があります。
+
+```sh
+npm i -g netlify-cli
 ```
 
-### Compiles and minifies for production
-```
-npm run build
+開発環境の起動
+
+```sh
+netlify dev
 ```
 
-### Run your unit tests
-```
+### テストの実行
+
+```sh
 npm run test:unit
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Lintの実行
+```sh
+# チェックのみ
+npm run lint 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# autofix
+npm run lint:fix 
+```
